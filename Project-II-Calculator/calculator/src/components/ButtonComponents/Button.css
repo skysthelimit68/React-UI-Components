@@ -1,0 +1,19 @@
+.buttons {
+    height: 95px;
+}
+
+.num {
+    background:none;
+}
+
+.func {
+    background:red;
+}
+.buttonRow {
+    display:flex;
+    width: 100%;
+}
+
+.button3 {
+    width:33.34%;
+}
