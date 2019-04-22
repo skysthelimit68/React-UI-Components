@@ -3,7 +3,7 @@ import './Display.css';
 
 const Display = () => {
     return (
-        <div class="display grid-4">
+        <div className="display grid-4">
             0
         </div>
     )
