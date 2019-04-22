@@ -1,0 +1,14 @@
+.contentFooter {
+    display:flex;
+    justify-content:flex-start;
+    width:90%;
+}
+
+.footerIcon {
+    width:16%;
+}
+
+i {
+    font-size:1.1rem;
+    color:#bbb;
+}
