@@ -1,7 +1,17 @@
 import React from 'react';
 import './Button.css';
 
-const NumberButton = () => {
+
+const NumberButton = (props) => {
+    return (
+        <button className = "buttons num button3" onClick = {props.onClick}>
+        {props.value}
+        </button>
+    )
+}
+
+
+/*const NumberButton = () => {
     return (
         <div className="grid-3 numberButton">
             <button class="buttons num grid-4 clearButton">clear</button>
@@ -23,6 +33,6 @@ const NumberButton = () => {
             <button className="buttons num grid-4">0</button>
         </div>
     )
-}
+}*/
 
 export default NumberButton;
