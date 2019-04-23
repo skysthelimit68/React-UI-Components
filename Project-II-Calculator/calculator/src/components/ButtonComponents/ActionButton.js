@@ -1,15 +1,12 @@
 import React from 'react';
 import './Button.css';
 
-const ActionButton = () => {
+
+const ActionButton = (props) => {
     return (
-        <div className="grid-1">
-            <button className="buttons func grid-4">÷</button>
-            <button className="buttons func grid-4">×</button>
-            <button className="buttons func grid-4">−</button>
-            <button className="buttons func grid-4">+</button>
-            <button className="buttons func grid-4">=</button>
-        </div>
+        <button className = "buttons func grid-4" onClick = {props.onClick}>
+            {props.value}
+        </button> 
     )
 }
 

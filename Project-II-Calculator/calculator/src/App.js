@@ -10,32 +10,37 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      //buttons: Array(10),
+      display: 0,
       total: 0,
+      runningNum:0,
       lastNum:0,
+      lastClick:"",
       action:"",
     }
   }
- 
- handleClick(i) {
-    //let total = calculate(i, this.state.lastNum, action);
-    this.setState({
-      total: i,
-      lastNum: i,
-      action:"",
-    })  
+
+handleClick(i) {
+
+
+   let newRunningNum = !isNaN(this.state.lastClick) ? this.state.runningNum * 10 + i : i;
+   this.setState({
+     runningNum : newRunningNum,
+     display : newRunningNum,
+     lastClick: i,
+   })
+   
+  
+  
+   let total = this.state.action !== "" ? this.calculate(i, this.state.lastNum, this.state.action) : 0;
+    //this.setState({
+     /// total: total,
+      //action:"",
+    //})  
  }
-
-/*calculate(curr, lastNum, action) {
-
-}*/
-
 
  renderButton(i) {
    
-  //this.state.buttons[i] = i;
   let styleClass = i !== 0? "buttons num button3" : "buttons num grid-4";
-    
   return (
      <NumberButton 
         value = {i}
@@ -47,16 +52,19 @@ class App extends React.Component {
 
  clearCalc() {
    this.setState({
-     total : 0,
-     lastNum : 0,
-     action: "",
+    display: 0,
+    total: 0,
+    runningNum:0,
+    lastNum:0,
+    lastClick:"",
+    action:"",
    })
  }
 
  renderDisplayButton() {
    return (
      <Display
-     value = {this.state.total}
+     value = {this.state.display}
      />
    )
  }
@@ -70,7 +78,68 @@ class App extends React.Component {
       />
    )
  }
+
+ renderActionButton(action) {
+  
+  return (
+    {action}  !== "=" ? <ActionButton 
+    value = {action}  
+    onClick = {() => {
+      let newLastNum = this.state.runningNum;
+      this.setState({
+      action: action,
+      lastClick: action,
+      lastNum : newLastNum,
+      display: newLastNum,
+      runningNum : 0,
+      })
+    }
+      }
+    />  : <ActionButton 
+    value = {action}  
+    onClick = {() => {
+      let newTotal = this.calculate(this.state.runningNum, this.state.lastNum, this.state.action);
+      this.setState({
+        lastClick: "",
+      /*  total : newTotal,
+        display: newTotal,*/
+     
+      })
+    }}
+    /> 
+  )
+ }
  
+ calculate(curr, lastNum, action) {
+  let result ;
+    switch (action) {
+      case "÷" :
+        result = lastNum / curr;
+        break;
+      case "×" :
+        result = lastNum * curr;
+        break;  
+      case "−" :
+        result = lastNum - curr;
+        break;
+      case "+" :
+        result = lastNum + curr;
+        break;
+    
+      default: 
+        result = curr;
+    }
+    this.setState({
+      total: result,
+      runningNum: 0,
+      lastNum: 0,
+      lastClick: "", 
+      display: result,
+      action: "",
+    });
+  }
+
+
   render() {
     return (
       <div className="calcApp">
@@ -99,8 +168,14 @@ class App extends React.Component {
 
 
       </div>
-   
-      <ActionButton />
+      <div className="grid-1">
+        {this.renderActionButton("÷")}
+        {this.renderActionButton("×")}
+        {this.renderActionButton("−")}
+        {this.renderActionButton("+")}
+        {this.renderActionButton("=")}
+
+      </div>
       
     </div>
     )
