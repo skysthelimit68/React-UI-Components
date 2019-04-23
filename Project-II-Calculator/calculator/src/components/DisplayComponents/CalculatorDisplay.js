@@ -1,12 +1,15 @@
 import React from 'react';
 import './Display.css';
 
-const Display = () => {
+
+const Display = (props) => {
     return (
         <div className="display grid-4">
-            0
+            {props.value}
         </div>
+        
     )
 }
+
 
 export default Display;

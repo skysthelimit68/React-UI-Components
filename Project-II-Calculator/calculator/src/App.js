@@ -3,47 +3,81 @@ import './App.css';
 import Display from './components/DisplayComponents/CalculatorDisplay';
 import NumberButton from './components/ButtonComponents/NumberButton';
 import ActionButton from './components/ButtonComponents/ActionButton';
+import ClearButton from './components/ButtonComponents/ClearButton';
 
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      buttons: Array(10),
+      //buttons: Array(10),
       total: 0,
       lastNum:0,
+      action:"",
     }
   }
  
  handleClick(i) {
+    //let total = calculate(i, this.state.lastNum, action);
     this.setState({
       total: i,
       lastNum: i,
+      action:"",
     })  
-    alert(`State is set to be ${this.state.lastNum}`)
  }
+
+/*calculate(curr, lastNum, action) {
+
+}*/
+
 
  renderButton(i) {
    
-  this.state.buttons[i] = i;
-
-    return (
+  //this.state.buttons[i] = i;
+  let styleClass = i !== 0? "buttons num button3" : "buttons num grid-4";
+    
+  return (
      <NumberButton 
-        value = {this.state.buttons[i]}
+        value = {i}
+        buttonStyle = {styleClass}
         onClick = { () => this.handleClick(i) }
         />
    )
  }
+
+ clearCalc() {
+   this.setState({
+     total : 0,
+     lastNum : 0,
+     action: "",
+   })
+ }
+
+ renderDisplayButton() {
+   return (
+     <Display
+     value = {this.state.total}
+     />
+   )
+ }
  
- 
+ renderClearButton() {
+   return (
+     <ClearButton 
+      value = "clear"
+      buttonStyle = "buttons num grid-4 clearButton"
+      onClick = { () => this.clearCalc() }
+      />
+   )
+ }
  
   render() {
     return (
       <div className="calcApp">
-      <Display />
+      {this.renderDisplayButton()}
       
       <div className="grid-3 numberButton">
-            <button className="buttons num grid-4 clearButton">clear</button>
+            {this.renderClearButton()}
             <div className="buttonRow">
               {this.renderButton(7)}
               {this.renderButton(8)}
@@ -59,6 +93,7 @@ class App extends React.Component {
               {this.renderButton(2)}
               {this.renderButton(3)}
             </div>
+              {this.renderButton(0)}
 
 
 
@@ -73,7 +108,8 @@ class App extends React.Component {
 }
 
 
-/*const App = () => {
+/*
+const App = () => {
   
 
   
@@ -87,6 +123,6 @@ class App extends React.Component {
       
     </div>
   );
-};*/
-
+};
+*/
 export default App;

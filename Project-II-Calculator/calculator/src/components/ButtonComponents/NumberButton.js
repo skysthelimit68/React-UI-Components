@@ -4,14 +4,14 @@ import './Button.css';
 
 const NumberButton = (props) => {
     return (
-        <button className = "buttons num button3" onClick = {props.onClick}>
+        <button className = {props.buttonStyle} onClick = {props.onClick}>
         {props.value}
-        </button>
+        </button> 
     )
 }
+/*
 
-
-/*const NumberButton = () => {
+const NumberButton = () => {
     return (
         <div className="grid-3 numberButton">
             <button class="buttons num grid-4 clearButton">clear</button>
