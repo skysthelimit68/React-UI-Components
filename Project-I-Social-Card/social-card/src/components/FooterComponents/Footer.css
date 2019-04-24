@@ -1,0 +1,29 @@
+.contentFooter {
+    display:flex;
+    justify-content:flex-start;
+    width:90%;
+    padding:10px 0;
+}
+
+.footerIcon {
+    width:16%;
+    padding:5px 0;
+    display:flex;
+}
+
+i {
+    font-size:1.1rem;
+    color:#bbb;
+    font-weight:300;
+}
+
+.iconCounter {
+    font-size: 0.8rem;
+    color: #bbb;
+    font-weight: 300;
+    padding: 0 10px;
+}
+
+.i-active {
+    color:#666;
+}

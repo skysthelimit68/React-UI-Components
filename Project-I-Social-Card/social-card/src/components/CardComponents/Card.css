@@ -1,1 +1,26 @@
 /* All styles for your Card Components live here */
+
+
+.cardContainer {
+    width:90%;
+    border: 1px solid #f5efef;
+    border-radius: 3px;
+}
+
+.cardBanner {
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.cardContent {
+    padding:1rem;
+}
+
+.cardContainer p {
+    font-size:0.85rem;
+}
+
+

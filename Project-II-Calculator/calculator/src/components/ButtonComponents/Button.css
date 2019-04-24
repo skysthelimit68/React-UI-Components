@@ -1,0 +1,35 @@
+.buttons {
+    height: 95px;
+    font-size:3rem;
+
+}
+
+.clearButton {
+    font-weight:400 !important;
+}
+
+.num {
+    background:none;
+    color:#171717;
+    font-weight: 700;
+
+}
+
+.func {
+    background:#af1212;
+    color:white;
+    font-size:4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+
+}
+.buttonRow {
+    display:flex;
+    width: 100%;
+}
+
+.button3 {
+    width:33.34%;
+}
