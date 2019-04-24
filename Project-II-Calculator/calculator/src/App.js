@@ -28,14 +28,8 @@ handleClick(i) {
      display : newRunningNum,
      lastClick: i,
    })
-   
-  
   
    let total = this.state.action !== "" ? this.calculate(i, this.state.lastNum, this.state.action) : 0;
-    //this.setState({
-     /// total: total,
-      //action:"",
-    //})  
  }
 
  renderButton(i) {
@@ -182,22 +176,4 @@ handleClick(i) {
   }
 }
 
-
-/*
-const App = () => {
-  
-
-  
-  
-  
-  return (
-    <div className="calcApp">
-      <Display />
-      <NumberButton />
-      <ActionButton />
-      
-    </div>
-  );
-};
-*/
 export default App;
